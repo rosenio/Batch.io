@@ -170,7 +170,7 @@ class Pre_Batch_Process(QWidget):
         if self.process_count >= self.process_length:
             print 'Pre Batch Finished!'
             
-            #self.B_UI.RefreshUI()
+            self.B_UI.RefreshUI()
 
     #===========================================================================
     # #Run on error got from process
@@ -196,11 +196,6 @@ class Pre_Batch_Process(QWidget):
 
                 
                 self.LOG[scene_short_name].append(line)
-
-
-
-
-            
 
         self.B_UI.AddSceneWidgetToBeBatchedUI(scene_short_name, True, 'Error')
 
