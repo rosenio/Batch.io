@@ -13,14 +13,14 @@ import maya.mel as mel
 #===============================================================================
 # Scripts path folder
 #===============================================================================
-dirPath = os.path.dirname(cmds.pluginInfo('Batch_io', q=1, path=1)) + '/Batch_io/'
+dirPath = os.path.dirname(cmds.pluginInfo('Batch_io', q=1, path=1))
 
 #===============================================================================
 # Add the scripts path to the system paths 
 #===============================================================================
 if dirPath and os.path.isdir(dirPath):
-    scriptsPath = dirPath + '/' + 'scripts' + '/'
-    
+    scriptsPath = dirPath.replace('Batch_io/plug-ins', 'Batch_io/scripts')
+
     if not scriptsPath in sys.path:
         sys.path.append(scriptsPath)
 

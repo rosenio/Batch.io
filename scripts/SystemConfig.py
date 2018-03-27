@@ -151,7 +151,7 @@ def Get_Project():
 # 
 #===============================================================================
 DEBUG_MODE        = False
-SOURCEFOLDERLIST  = ['animation', 'render', 'groom', 'ref', 'modeling']
+SOURCEFOLDERLIST  = ['animation', 'render', 'groom', 'ref', 'modeling', 'lookDev']
 CACHE_FOLDER      = 'cache/abc'
 REF_FOLDER        = 'scenes/ref'
 CAMERA_NAME       = 'cam_render'
