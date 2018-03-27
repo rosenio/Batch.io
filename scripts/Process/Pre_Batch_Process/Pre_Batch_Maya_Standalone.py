@@ -162,6 +162,18 @@ def main():
 
         print 'STATUS'
         print ProcessStage(reference_index)
+    
+    if not REFCOUNT:
+        e = 'Scene has no reference.'
+        outputData['status']                                  = 'Error'
+        outputData['error']                                   = str(e)
+        outputData['Scene_CheckState_Info'][SCENE_SHORT_NAME] = False
+        
+        print 'ERROR_%s_%s'%(e, SCENE_SHORT_NAME)
+        print outputData
+
+        print 'STATUS'
+        print 1
         
     #===========================================================================
     # #Write compressed data to be readed on pre batch process

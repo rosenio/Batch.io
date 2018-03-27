@@ -287,6 +287,15 @@ class Pre_Batch_Process(QWidget):
                 #===============================================================
                 self.LOG[scene_short_name].append(line)
 
-
+            if 'ERROR_' in line:
+                #===============================================================
+                # #Update batch info 
+                #===============================================================
+                self.Pre_Batch_Info[scene_short_name] = {'command':'None', 'status':'Error'}
+                #===============================================================
+                # #LOG
+                #===============================================================
+                self.B_UI.console.AddText(line)
+                self.LOG[scene_short_name].append(line)
                 
                 
