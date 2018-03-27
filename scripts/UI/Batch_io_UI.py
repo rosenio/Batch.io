@@ -84,7 +84,6 @@ class Batch_io_UI(Sing.Singleton, QWidget):
         # #Reference stuff
         #=======================================================================
         self.AssetsToBeBatchedTabs = AW.AssetListWidget()
-        #self.AssetsToBeBatchedTabs.setTabPosition(QTabWidget.South)
         
         
         self.reference_grp_widget  = QWidget()
@@ -164,7 +163,6 @@ class Batch_io_UI(Sing.Singleton, QWidget):
         #=======================================================================
         if self.Pre_Batch_Scene_Info.Scene_List():
             for scene_short_name in self.Pre_Batch_Scene_Info.Scene_List():
-                print self.Pre_Batch_Scene_Info.Pre_Batch_Info[scene_short_name].scene_check_state[scene_short_name]
                 if self.Pre_Batch_Scene_Info.Pre_Batch_Info[scene_short_name].scene_check_state[scene_short_name]:
                     self.AddSceneWidgetToBeBatchedUI(scene_short_name, False, 'Ready')
                 else:
@@ -233,7 +231,6 @@ class Batch_io_UI(Sing.Singleton, QWidget):
     
     def print_none(self):
         print 'None'
-        
         
     #===========================================================================
     # #Add scene widgets

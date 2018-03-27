@@ -161,7 +161,7 @@ class BatchWidgetEngine(object):
         if progress >= 100:
             progress = 100
         
-        #self.thread_info[self.scene_info.scene_short_name].signal.Batch_Thread_Progress_Signal.emit(float(progress))
+
         #=======================================================================
         # #Report the progress message
         #=======================================================================

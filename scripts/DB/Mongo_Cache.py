@@ -33,7 +33,10 @@ class Mongo_Cache():
         return result
 
     def put(self):
-        self.id = self.db[self.type].insert({'scene_short_name':self.scene_short_name, 'reference_list':self.reference_list, 'start_frame':self.start_frame, 'end_frame':self.end_frame}).inserted_id
+        self.id = self.db[self.type].insert({'scene_short_name':self.scene_short_name, 
+                                             'reference_list':self.reference_list, 
+                                             'start_frame':self.start_frame, 
+                                             'end_frame':self.end_frame}).inserted_id
         
     def update(self, id='', entry='', value=''):
         self.db[self.type].update({'_id':id}, {'$set':{entry:value}})

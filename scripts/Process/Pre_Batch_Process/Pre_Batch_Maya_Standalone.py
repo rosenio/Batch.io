@@ -51,11 +51,6 @@ import time
 #===============================================================================
 REFFOLDER   = 'ref'
 
-#===============================================================================
-# #Custom global variables
-# #Example:
-# #REFETYPE = ['CHARACTER', 'PROP', 'VEHICLE']
-#===============================================================================
 
 #===============================================================================
 # #Required Maya standalone initialization
@@ -107,7 +102,6 @@ def ProcessStage(step=0):
 # #This function is the function the batch process will run
 #===============================================================================
 
-        
 def main():
     outputData = {}
     outputData['scene_short_name']          = SCENE_SHORT_NAME

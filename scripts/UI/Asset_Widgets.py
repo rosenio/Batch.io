@@ -185,6 +185,7 @@ class AssetWidget(QWidget):
                 pixIcon.addPixmap(colorPixmap)
                 assetBtn.setIcon(pixIcon)
 
+
     #===========================================================================
     # #Combobox
     #===========================================================================
@@ -220,6 +221,7 @@ class AssetWidget(QWidget):
     
     def Set_Radio_Label(self):
         self.radio_grp.Set_Label()
+
 
     #===========================================================================
     # #Search
@@ -377,7 +379,6 @@ class AssetWidget(QWidget):
         start_animation.setKeyValueAt(0.5, QSize(0, self.asset_height))
         
         animTHD = Anim_Thread(start_animation)
-
         
         Anim_Thread_Pool.start(animTHD)
         
@@ -799,7 +800,6 @@ class Anim_Thread(QRunnable):
     def __init__(self, anim=None):
         QRunnable.__init__(self)
 
-        
         self.anim = anim
         
     def start_anim(self):

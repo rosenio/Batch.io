@@ -150,13 +150,13 @@ def Get_Project():
 #===============================================================================
 # 
 #===============================================================================
-DEBUG_MODE        = True
+DEBUG_MODE        = False
 SOURCEFOLDERLIST  = ['animation', 'render', 'groom', 'ref', 'modeling']
 CACHE_FOLDER      = 'cache/abc'
 REF_FOLDER        = 'scenes/ref'
 CAMERA_NAME       = 'cam_render'
 VERSION           = 2.7
 TEMP_FOLDER       = 'c:/temp'
-LOAD_MENU         = False
+LOAD_MENU         = True
 
 

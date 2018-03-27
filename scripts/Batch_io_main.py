@@ -14,7 +14,7 @@ import Import_Cache as IC
 import Singleton as Sing
 
 reload(IC)
-QApplication.instance().setAttribute(Qt.AA_EnableHighDpiScaling)
+
 
 class Batch_io_main(Sing.Singleton, QWidget):
     _instance = None
@@ -66,6 +66,7 @@ class Batch_io_main(Sing.Singleton, QWidget):
         settingsMenu.addAction(collapseAction)
         settingsMenu.addAction(refreshAction)
 
+
         #=======================================================================
         # #Set folder combo box
         #=======================================================================
@@ -101,7 +102,6 @@ class Batch_io_main(Sing.Singleton, QWidget):
         #=======================================================================
         # #Call external io to put in the ui
         #=======================================================================
-        QApplication.processEvents()
         self.B_UI      = Batch_io_UI.globalInstance(Batch_io_UI)
         self.impCache  = IC.ImportCache()
         self.P_BP      = Pre_Batch_Process()
@@ -158,7 +158,6 @@ class Batch_io_main(Sing.Singleton, QWidget):
         #=======================================================================
         # #Close all running process
         #=======================================================================
-        #self.Pre_Batch_Scene_Info.Clear()
         self.B_UI.Stop()
 
 
