@@ -64,7 +64,9 @@ class Batch_Thread(QRunnable):
                     '-command_list',
                     self.args['command_list'],
                     '-sceneInfo',
-                    self.args['sceneInfo']
+                    self.args['sceneInfo'],
+                    '-ref_folder',
+                    self.args['ref_folder']
                     ]
         
         self.arg_list = [self.processFile] + arg_list

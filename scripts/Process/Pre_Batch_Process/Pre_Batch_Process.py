@@ -102,7 +102,8 @@ class Pre_Batch_Process(QWidget):
                                                        'preloadOnly':'True',
                                                        'byPassRefs':'False',
                                                        'command_list':[],
-                                                       'sceneInfo':{}})
+                                                       'sceneInfo':{},
+                                                       'ref_folder':REF_FOLDER})
             
             #===================================================================
             # #Thread Sinals connection

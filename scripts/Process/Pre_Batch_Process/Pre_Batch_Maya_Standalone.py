@@ -36,6 +36,7 @@ SCENE_FULL_PATH   = parsedArgs['-scene_full_path']
 SCENE_SHORT_NAME  = parsedArgs['-scene_short_name']
 COMMAND_LIST      = parsedArgs['-command_list']
 SCENE_INFO        = parsedArgs['-sceneInfo']
+REF_FOLDER        = parsedArgs['-ref_folder']
 
 
 #===============================================================================
@@ -49,7 +50,7 @@ import time
 #===============================================================================
 # #Required global variables
 #===============================================================================
-REFFOLDER   = 'ref'
+
 
 
 #===============================================================================
@@ -123,32 +124,33 @@ def main():
             #=======================================================================
             reference_node      = REFERENCELIST[reference_index]
             reference_path      = cmds.referenceQuery(reference_node, filename=True)
-            reference_namespace = cmds.file(reference_path, q=True, namespace=True)
-            reference_type      = reference_path.split(REFFOLDER)[-1].split('/')[1]
-            #=======================================================================
-            # #Feed the output data
-            #=======================================================================
-            if not reference_type in outputData['reference_list'].keys():
-                outputData['reference_list'][reference_type] = []
-
-            #===================================================================
-            # #Store the references
-            #===================================================================
-            outputData['reference_list'][reference_type].append(reference_namespace)
-            
-            outputData['Reference_Full_Path'][reference_namespace] = reference_path.split('scenes/ref/')[-1]
-            #===================================================================
-            # #Feed the scene check state for future use
-            #===================================================================
-            outputData['Scene_CheckState_Info'][SCENE_SHORT_NAME] = True
-            
-            if not reference_type in outputData['Reference_CheckState_Info'].keys():
-                outputData['Reference_CheckState_Info'][reference_type] = {}
-
-            #===================================================================
-            # #Feed the reference check state for future use
-            #===================================================================
-            outputData['Reference_CheckState_Info'][reference_type][reference_namespace] = True
+            if REF_FOLDER in reference_path:
+                reference_namespace = cmds.file(reference_path, q=True, namespace=True)
+                reference_type      = reference_path.split(REF_FOLDER)[-1].split('/')[1]
+                #=======================================================================
+                # #Feed the output data
+                #=======================================================================
+                if not reference_type in outputData['reference_list'].keys():
+                    outputData['reference_list'][reference_type] = []
+    
+                #===================================================================
+                # #Store the references
+                #===================================================================
+                outputData['reference_list'][reference_type].append(reference_namespace)
+                
+                outputData['Reference_Full_Path'][reference_namespace] = reference_path.split(REF_FOLDER)[-1]
+                #===================================================================
+                # #Feed the scene check state for future use
+                #===================================================================
+                outputData['Scene_CheckState_Info'][SCENE_SHORT_NAME] = True
+                
+                if not reference_type in outputData['Reference_CheckState_Info'].keys():
+                    outputData['Reference_CheckState_Info'][reference_type] = {}
+    
+                #===================================================================
+                # #Feed the reference check state for future use
+                #===================================================================
+                outputData['Reference_CheckState_Info'][reference_type][reference_namespace] = True
      
             
         except Exception, e:
