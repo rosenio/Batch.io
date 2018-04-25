@@ -7,32 +7,35 @@
 #===============================================================================
 from BatchWidgetEngine import *
 
-WIDGET_NAME     = 'Shader Import'
-WIDGET_TYPE     = 'RENDER'
-WIDGET_DESC     = 'Import published shaders for the references.'
+WIDGET_NAME     = 'Shader Export'
+WIDGET_TYPE     = 'LOOKDEV'
+WIDGET_DESC     = 'Export published shaders for the references.'
 WIDGET_SETTINGS = {}
 
+#===============================================================================
+# #Shader Pipeline
+#===============================================================================
 from Tools.ShaderPipeline import *
 
-class ShaderImport_widget(BatchWidgetEngine):
-    name        = "ShaderImport"
-
+class ShaderExport_widget(BatchWidgetEngine):
+    name        = "ShaderExport"
+    
     def __init__(self, scene_info):
-        super(ShaderImport_widget, self).__init__(scene_info)
-
+        super(ShaderExport_widget, self).__init__(scene_info)
+        
         self.reference_type_level_on = False
         self.reference_level_on      = True
 
         self.CurrentProject = Get_Project()
-
+        
         self.onStart(self.scene_info)
-
+        
     #===========================================================================
     # #The starter function
     #===========================================================================
     def onStart(self, scene_info):
         return self.run()
-
+    
     #===========================================================================
     # #Run on the scene
     #===========================================================================
@@ -42,7 +45,8 @@ class ShaderImport_widget(BatchWidgetEngine):
         #===================================================================
         # #Scene level event commands here
         #===================================================================
-
+        
+        print 'CODE HERE'
         #===================================================================
         # #Scene level event commands here
         #===================================================================
@@ -52,7 +56,7 @@ class ShaderImport_widget(BatchWidgetEngine):
     #===========================================================================
     def reference_type_level_event(self, reference_type):
         '''Reference type event'''
-
+        
         #===================================================================
         # #Reference type level event commands here
         #===================================================================
@@ -66,25 +70,23 @@ class ShaderImport_widget(BatchWidgetEngine):
     #===========================================================================
     def reference_level_event(self, scene_info, reference_type, reference_name, isCamera):
         '''Reference level event'''
-
+        
         #===================================================================
         # #Reference level event commands here
         #===================================================================
-        print 'Reference import shader'
+        print 'CODE HERE'
 
         #=======================================================================
         # #Handle if reference is of type CAMERA
         #=======================================================================
         if not isCamera:
             print 'Camera name: %s'%reference_name
-
-        shaderPipelineClass = ShaderPipeline.ShaderPipeline(characterName   =   reference_name,
-                                                            characterType   =   reference_type,
-                                                            projectPath     =   self.CurrentProject)
-        shaderPipelineClass.shaderSceneVerify()
-        shaderPipelineClass.shaderImport()
-        self.progress_increment()
-
+            shaderPipelineClass = ShaderPipeline.ShaderPipeline(characterName   =   reference_name, 
+                                                                characterType   =   reference_type, 
+                                                                projectPath     =   self.CurrentProject)
+            shaderPipelineClass.shaderPublish()
+            self.progress_increment()
+            
         #===================================================================
         # #Reference level event commands here
         #===================================================================
@@ -97,17 +99,20 @@ class ShaderImport_widget(BatchWidgetEngine):
         #===================================================================
         # #On end level event commands here
         #===================================================================
-        cmds.file(save=True, f=True)
+        # 'CODE HERE'
         #===================================================================
         # #On end level event commands here
         #===================================================================
-
+        
         return scene_info
-
-
-
+    
+    
+    
 #===============================================================================
 # # The function the return that class from external tools
 #===============================================================================
 def main(sceneInfo):
-    return ShaderImport_widget(sceneInfo)
+    return ShaderExport_widget(sceneInfo)
+
+
+
