@@ -483,8 +483,8 @@ class Batch_io_UI(Sing.Singleton, QWidget):
                                   'Scene_CheckState_Info':     {scene_short_name: True}, 
                                   'scene_full_path':           scene_full_path,
                                   'Project_Path':              scene_info.project_path,
-                                  'start_frame':               0,
-                                  'end_frame':                 1
+                                  'start_frame':               scene_info.start_frame,
+                                  'end_frame':                 scene_info.end_frame
                                 }
                     
                     #===========================================================
