@@ -40,12 +40,13 @@ def Batch_io_SetupMenu():
         cmds.deleteUI(toolLabel)
     
     if LOAD_MENU:
-        MENUDICTLIST = [batch_io_MenuDict]
+        #MENUDICTLIST = [batch_io_MenuDict]
+        #MENUDICTLIST = []
     
         #===========================================================================
         # Create the parent menu
         #===========================================================================
-        Batch_io_Menu = cmds.menu(parent_menu, p=gMainWindow, to=1, l=toolLabel)
+        #Batch_io_Menu = cmds.menu(parent_menu, p=gMainWindow, to=1, l=toolLabel)
         
         
         #===========================================================================
@@ -102,7 +103,7 @@ def Batch_io_SetupMenu():
                 #===================================================================
                 # Add the menu
                 #===================================================================
-                cmds.menuItem(parent=parent_menu, d=1)
+                #cmds.menuItem(parent=parent_menu, d=1)
 
 
 #===============================================================================
