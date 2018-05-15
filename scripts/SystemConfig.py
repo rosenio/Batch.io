@@ -29,7 +29,6 @@ if not BATCH_io_SCRIPTS+'Tools' in sys.path:
     sys.path.append(BATCH_io_SCRIPTS+'Process/Batch_Process')
     sys.path.append(BATCH_io_SCRIPTS+'Process/Pre_Batch_Process')
     sys.path.append(BATCH_io_SCRIPTS+'Process/Utils')
-    sys.path.append(BATCH_io_SCRIPTS+'Tools')
     sys.path.append(BATCH_io_SCRIPTS+'Widgets')
 
 
@@ -157,6 +156,8 @@ REF_FOLDER        = 'scenes/ref'
 CAMERA_NAME       = 'cam_render'
 VERSION           = 2.7
 TEMP_FOLDER       = 'c:/temp'
+GROOM_CACHE_PATH  = 'cache/fur'
+GROOM_PATH        = 'cache/groom'
 LOAD_MENU         = True
 
 

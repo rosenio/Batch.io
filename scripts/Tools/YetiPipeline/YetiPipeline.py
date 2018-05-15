@@ -16,7 +16,7 @@ class YetiPipeline(object):
         
         self.GetCharacterSelection = True
         
-        self.publishPath = cmds.workspace( q=True, rd=True )+'cache/groom/'
+        self.publishPath = cmds.workspace( q=True, rd=True )+GROOM_PATH
         
         loadYetiPlugin()
     #===========================================================================
@@ -336,7 +336,7 @@ class YetiPipeline(object):
     #===========================================================================
     def UpdateCharacterName(self):
         projectPath = cmds.workspace( q=True, rd=True )
-        publishPath = projectPath+'cache/groom/'+self.charNameLE.text()
+        publishPath = projectPath+GROOM_PATH+self.charNameLE.text()
         self.characterName = self.charNameLE.text()
         self.importFolderLE.setText(publishPath)
         self.publishPathLbl.setText(publishPath+'/*.grm')
@@ -353,7 +353,7 @@ class YetiPipeline(object):
         
         if not cachePath:
             projectPath = cmds.workspace( q=True, rd=True )
-            cachePath   = yetiOutputPath =  projectPath+"/cache/fur/%s/fur/"%sceneName
+            cachePath   = yetiOutputPath =  projectPath+"/%s/%s/fur/"%(GROOM_CACHE_PATH, sceneName)
         
         #Generate cache for only selected meshes
         if self.cache_selected:
@@ -425,7 +425,7 @@ class YetiPipeline(object):
 
         if not cachePath:
             projectPath = cmds.workspace( q=True, rd=True )
-            cachePath   = projectPath+"cache/fur/%s/"%sceneName
+            cachePath   = projectPath+"%s/%s/"%(GROOM_CACHE_PATH, sceneName)
             
         #Export yeti nodes and feathers
         yetiNodeList    = [cmds.listRelatives(yetiNode,    parent=True, fullPath=True)[0] for yetiNode    in cmds.ls(type='pgYetiMaya',        long=True)]
@@ -465,7 +465,7 @@ class YetiPipeline(object):
         
         if not cacheFolder:
             projectPath = cmds.workspace( q=True, rd=True )
-            cacheFolder = projectPath+"cache/fur/%s/"%sceneName
+            cacheFolder = projectPath+"%s/%s/"%(GROOM_CACHE_PATH, sceneName)
             
         for yetiNode in cmds.ls(type='pgYetiMaya'):
             cmds.setAttr(yetiNode+'.cacheFileName', cacheFolder+yetiNode.replace(':', '_')+'.%04d.fur', type='string')
@@ -547,7 +547,7 @@ class YetiPipeline(object):
         projectPath    = cmds.workspace( q=True, rd=True )
         yetiNodeList   = cmds.ls(type='pgYetiMaya')
         
-        yetiOutputPath =  projectPath+"cache/groom/%s/"%characterName
+        yetiOutputPath =  projectPath+"%s/%s/"%(GROOM_PATH, characterName)
         
         loadYetiPlugin()
         if yetiNodeList:

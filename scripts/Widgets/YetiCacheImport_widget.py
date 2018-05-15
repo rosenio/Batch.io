@@ -56,7 +56,7 @@ class YetiCacheImport_widget(BatchWidgetEngine):
         #=======================================================================
         # Reference Yeti Scene
         #=======================================================================
-        yeti_scene_path = scene_info.project_path+'cache/fur/%s/%s_yeti_cache.ma'%(scene_info.scene_short_name, scene_info.scene_short_name)
+        yeti_scene_path = scene_info.project_path+'%s/%s/%s_yeti_cache.ma'%(GROOM_PATH, scene_info.scene_short_name, scene_info.scene_short_name)
         if cmds.file(yeti_scene_path, exists=True, q=True):
             self.ReferenceYeti(yeti_scene_path)
 
