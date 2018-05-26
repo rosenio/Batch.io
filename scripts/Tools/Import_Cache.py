@@ -146,7 +146,7 @@ class ImportCache(QWidget):
                 assetDict = cache_list['reference_list']
 
                 #===============================================================
-                # Put the cache lists into the main cache dict to use later
+                # Put the cache list into the main cache dict to use later
                 #===============================================================
                 self.Import_Cache_Info[scene_short_name] = cache_list
 
