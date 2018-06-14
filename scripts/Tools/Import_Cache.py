@@ -353,10 +353,8 @@ class ImportCache(QWidget):
                     if not cmds.objExists(assetItem['root_name']):
                         alembicNode = cmds.ls('%s:*'%namespace_name, type='AlembicNode')
 
-                        if alembicNode:
-                            rootNodes   = cmds.listConnections(alembicNode)
-                        else:
-                            rootNodes = cmds.ls('%s:*'%namespace_name, type='transform')
+                        rootNodes = cmds.ls('%s:*'%namespace_name, type='transform')
+
                         if rootNodes:
                             try:
                                 if not cmds.objExists('%s_MESH'%namespace_name):
